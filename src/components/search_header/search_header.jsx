@@ -1,8 +1,8 @@
 import styles from "./search_header.module.css";
-import React from "react";
+import React, { memo } from "react";
 import { useRef } from "react";
 
-const SearchHeader = ({ onSearch }) => {
+const SearchHeader = memo(({ onSearch }) => {
   // search가 되면 컴포넌트 안에서 버튼이 눌려졌는지, 엔터키가 눌렸는지 상관없이 검색 이벤트가 발생하면 내가 전달해주는 콜백함수(onSearch)를 불러라!
   const inputRef = useRef();
   const handleSearch = () => {
@@ -21,7 +21,7 @@ const SearchHeader = ({ onSearch }) => {
       handleSearch();
     }
   };
-
+  console.log("header!");
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
@@ -39,6 +39,5 @@ const SearchHeader = ({ onSearch }) => {
       </button>
     </header>
   );
-};
-
+});
 export default SearchHeader;
